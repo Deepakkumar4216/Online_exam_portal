@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% load static %}
+    <title>Review</title>
+  <style type="text/css">
+    
+    #review_div{
+      height: auto;
+      width: 400px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <form action="/Review/" method="POST"> 
+    
+    {% for ob in obj%}
+      <div id = "review_div">
+        <h3> {{ob.id}}. {{ob.Ques}}   </h3>
+        <p>1. {{ob.Ans1}}</p>
+        <p>2. {{ob.Ans2}}</p>
+        <p>3. {{ob.Ans3}}</p>
+        <p>4. {{ob.Ans4}}</p>   
+        <br>
+        {% if ob.StudentAns == 0 %}
+        <p> Not Attempt</p>
+        <p> Correct Answer : {{ob.RightAns}}</p>
+        {% else %}
+        <p> Your Answer : {{ob.StudentAns}}</p>
+        <p> Correct Answer : {{ob.RightAns}}</p>
+        {% endif %}
+        <br>
+      </div>
+      
+    {% endfor %}
+  </form>
+
+</body>
+</html>

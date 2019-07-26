@@ -1,0 +1,95 @@
+<html>
+<head>
+  {% load static %}
+	<style >
+		.butn2 {
+			
+			background-color: #4CAF50;
+			padding: 10px;
+			border-color: #4CAF50;
+		    float: left;
+
+		}
+		.butn21 {
+			float:right;
+			background-color: #4CAF50;
+			padding: 10px;
+			border-color: #4CAF50;
+
+		}
+		.butn1 {
+			float:left;
+			background-color: #4CAF50;
+			padding: 16px;
+			border-color: #4CAF50;
+		}
+		.main{
+			border: 3px hidden black;
+			 margin-left: 250px;
+			 margin-right: 250px;
+			text-align: left;
+
+		}
+		.image {
+ 			position:absolute;
+ 	 		width:1350px;
+ 	 		max-height:635px;
+ 	 		opacity: 0.3;
+			z-index: -1;
+
+		}
+	 	.imge{
+  			display: block;
+  			margin-left: auto;
+  			margin-right: auto;
+		}
+		h1{
+			margin-left: 270px;
+			color: darkblue;
+			font-size: 250%;
+		}
+
+	</style>
+</head>
+<body >
+	<div>
+	<img src="{% static 'study/d2.jpg' %}" alt="instructions Set" class="image" > 
+	</div>
+	<div >
+	 <marquee><img src="{% static 'study/d6.png' %}"></marquee>
+	</div>
+	<div>
+		<h1>Hello {{username}}</h1>
+	</div>
+	<center>
+	<div class="main"  >
+	<p>
+		<img src="{% static 'study/d8.png' %}" class="imge" style=": center; border-bottom: 5px solid darkblue;">
+
+
+
+<ul style="font-size:20px; color:darkblue">
+
+<li>Total no. of questions : 10</li>
+
+<li>Total Time for Quiz : 15 Minute(s).</li>
+
+<li>Total question Attempt : {{attempt}}</li>
+
+<li>Total number of correct ans :{{correct}}</li>
+
+<li>Total number of wrong ans:{{wrong}}</li>
+<h2><li>TOTAL MARKS OBTAINED :{{finalresult}}</li></h2>
+
+
+</ul>
+
+<form action="/result/" method="POST">
+  {% csrf_token %}
+  	<input type="text" value="{{arr}}" hidden name="arr_textbox">
+	<button type="submit" class="butn1" name="btn" value = "Logout">Logout</button>
+    <button type="submit" class="butn21" name="btn" value="review">review</button>
+</form>
+</p></div></center>
+</body>
+</html>
